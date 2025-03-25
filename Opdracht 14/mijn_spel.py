@@ -4,12 +4,14 @@ from pgzero.actor import Actor
 width = 800
 height = 600
 
-# Zorg ervoor dat de afbeelding in de 'images' map staat
-speler = Actor("apple.png", (400, 300))  # Dit verwijst naar 'images/apple.png'
+
+speler = Actor("apple.png", (400, 300)) 
+vijand = Actor("enemy.png", (400, 0))
 
 def draw():
     screen.clear()
     speler.draw()
+    vijand.draw()
 
 def update():
     if keyboard.left and speler.x > 0:
@@ -20,5 +22,12 @@ def update():
         speler.y -= 5
     if keyboard.down and speler.y < height:
         speler.y += 5
+    
+    global vijand
+    vijand.y += 3
+
+    if vijand.y > height:
+        vijand.y = 0
+
 
 pgzrun.go()

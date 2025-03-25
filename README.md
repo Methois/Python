@@ -58,6 +58,13 @@ Deze repository is bedoeld als portfolio voor stagebedrijven en geïnteresseerde
 
 ---
 
+### 7️⃣ **Opdracht 14 - Games in Python**
+📌 * In deze opdracht maak ik 3 verschillende simpele games in python, in de eerste game voeg ik enkel de speler en de enemy toe. in de tweede game heb ik een game gemaakt dat je de enemy moet hitten waarna hij een andere image krijgt. en in de 3de game heb ik een ontwijk game gemaakt*
+
+🔹 **Technieken:** *Gebruik maken van pygame voor het maken van een game.*
+
+---
+
 ## 📢 Contact
 Wil je meer weten over mijn projecten of heb je vragen? Neem gerust contact op!
 
