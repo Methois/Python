@@ -1,37 +1,36 @@
 import csv
 
-# Functie om het CSV-bestand in te lezen
 def lees_csv_bestand(bestandsnaam):
     gegevens = []
     with open(bestandsnaam, newline='', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile)
+        reader = csv.DictReader(csvfile, delimiter=';') 
         for row in reader:
             gegevens.append(row)
     return gegevens
 
-# Functie om alle gegevens te tonen
 def toon_alle_gegevens(gegevens):
     for student in gegevens:
-        print(f"Naam: {student['Naam']}, Leeftijd: {student['Leeftijd']}, Klas: {student['Klas']}, Cijfer: {student['Cijfer']}")
+        print(f"Nummer: {student['Nummer']}, Naam: {student['Naam']}, HTML: {student['HTML']}, Python: {student['Python']}, Netwerken: {student['Netwerken']}, Rekenen: {student['Rekenen']}, IOT: {student['IOT']}, Nederlands: {student['Nederlands']}")
 
-# Functie om een specifieke student te zoeken
 def zoek_student(gegevens, naam):
     for student in gegevens:
         if student['Naam'].lower() == naam.lower():
             return student
     return None
 
-# Functie om de gegevens van een specifieke student te tonen
 def toon_student_gegevens(student):
     if student:
+        print(f"\nNummer: {student['Nummer']}")
         print(f"Naam: {student['Naam']}")
-        print(f"Leeftijd: {student['Leeftijd']}")
-        print(f"Klas: {student['Klas']}")
-        print(f"Cijfer: {student['Cijfer']}")
+        print(f"HTML: {student['HTML']}")
+        print(f"Python: {student['Python']}")
+        print(f"Netwerken: {student['Netwerken']}")
+        print(f"Rekenen: {student['Rekenen']}")
+        print(f"IOT: {student['IOT']}")
+        print(f"Nederlands: {student['Nederlands']}\n")
     else:
         print("Student niet gevonden.")
 
-# Functie voor het hoofdmenu
 def hoofdmenu(gegevens):
     while True:
         print("\nHoofdmenu:")
@@ -53,10 +52,14 @@ def hoofdmenu(gegevens):
         else:
             print("Ongeldige keuze, probeer het opnieuw.")
 
-# Hoofdprogramma
 def main():
-    bestandsnaam = 'proefwerken.csv'  # Zorg ervoor dat het bestand in de juiste directory staat
+    bestandsnaam = './opdracht 12/proefwerken.csv'
     gegevens = lees_csv_bestand(bestandsnaam)
+    
+    if not gegevens:
+        print("Fout: Geen gegevens gevonden in het CSV-bestand.")
+        return
+    
     hoofdmenu(gegevens)
 
 # Programma starten
